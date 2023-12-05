@@ -1,40 +1,39 @@
-import React, { useState, useContext } from "react";
+import {useLocation} from "react-router-dom";
+import './movies-card.css'
 
-import Button from "../Button/Button";
-import Icons from "../Icons";
-import savedPageContext from "../../context/saved-page-context";
-import "./MoviesCard.css";
+function DurationConverter({ minutes }) {
+  const hours = Math.floor(minutes / 60);
+  const remainingMinutes = minutes % 60;
 
-function MoviesCard({ title, duration, imageUrl }) {
-  const { onSavedPage } = useContext(savedPageContext);
-  const [isSaved, setIsSaved] = useState(false);
-
-  const handleSave = () => setIsSaved(!isSaved);
-  const handleDelete = () => console.log("Удаление карточки");
-
-  return (
-    <li className="movies-card">
-      <div className="movies-card__header">
-        <h2 className="movies-card__title">{title}</h2>
-        <p className="movies-card__duration">{duration} минут</p>
-      </div>
-      <img className="movies-card__image" src={imageUrl} alt={title} />
-      <div className="movies-card__footer">
-        <Button
-          className={`button_type_card ${
-            isSaved && !onSavedPage ? "button_type_red" : "button_type_gray"
-          }`}
-          handler={!onSavedPage ? handleSave : handleDelete }
-        >
-          {onSavedPage
-            ? (<Icons.Delete />)
-            : (isSaved
-              ? (<Icons.Like />)
-              : "Сохранить")}
-        </Button>
-      </div>
-    </li>
-  );
+  return <p className='card__time'>{hours}ч {remainingMinutes}м</p>
 }
 
-export default MoviesCard;
+const MoviesCard = ({ title, duration, poster, id, savedMovies }) => {
+
+  const location = useLocation()
+  const pathname = location.pathname
+
+  return (
+    <div className='movies-card card '>
+      <div className="card__container">
+        <div className="card__heading">
+          <h3 className="card__title">{title}</h3>
+          <DurationConverter minutes={duration} />
+        </div>
+
+        <img src={poster} alt="Movie Image" className="card__img flip-in-diag-1-tr"/>
+        {/* Saved movie button */}
+        {/*<button className='button button_type_add' type='button'>&#10003;</button>*/}
+        {/* Add movie to list button */}
+        {pathname === '/movies' && savedMovies ?
+          <button className='button button_type_add' type='button'>&#10003;</button> :
+          pathname !== '/saved-movies' &&
+          <button className='button button_type_text' type='button'>Сохранить</button>
+        }
+        {/* Remove movie from list button */}
+        {pathname === '/saved-movies' && <button className='button button_type_remove' type='button'>&#10006;</button>}
+      </div>
+    </div>
+  )
+}
+export default MoviesCard

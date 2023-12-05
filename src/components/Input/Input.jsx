@@ -1,29 +1,34 @@
-import React from "react";
+import './input.css'
 
-import "./Input.css";
-
-function Input({ name, label, error, modifier, ...rest }) {
+const Input = ({
+  value,
+  error,
+  onChange,
+  name,
+  type,
+  label,
+  placeholder,
+  minLength,
+  maxLength,
+  required
+}) => {
   return (
-    <>
-      <div className={`input app__input input_type_${modifier}`}>
-        <label
-          className={`input__label input__label_type_${modifier}`}
-          htmlFor={name}
-        >
-          {label}
-        </label>
+      <label htmlFor="" className='label'>{label}
         <input
-          className={`input__field input__field_type_${modifier}`}
-          id={name}
+          style={{color: error && '#EE3465'}}
+          value={value}
+          onChange={onChange}
           name={name}
-          {...rest}
+          type={type}
+          minLength={minLength}
+          maxLength={maxLength}
+          placeholder={placeholder}
+          required={required}
         />
-      </div>
-      <span className={`input__error input__error_type_${modifier}`}>
-        {error}
+        <span className="span_error">
+        {error && `Что-то пошло не так...`}
       </span>
-    </>
-  );
+      </label>
+  )
 }
-
-export default Input;
+export default Input

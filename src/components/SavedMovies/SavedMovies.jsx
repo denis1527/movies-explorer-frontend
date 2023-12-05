@@ -1,56 +1,15 @@
-import React, { useContext, useEffect } from "react";
-
-import Container from "../Container/Container";
-import Footer from "../Footer/Footer";
-import Header from "../Header/Header";
-import MoviesCardList from "../MoviesCardList/MoviesCardList";
+import React from 'react'
 import SearchForm from "../SearchForm/SearchForm";
-import savedPageContext from "../../context/saved-page-context";
-import "./SavedMovies.css";
+import { movies } from "../../utils/constants";
+import MoviesCards from "../MoviesCards/MoviesCards";
+import './saved-movies.css'
 
-const savedMovies = [
-  {
-    id: 1,
-    title: "В погоне за Бенкси",
-    duration: 23,
-    imageUrl:
-      "https://images.unsplash.com/photo-1682685797332-e678a04f8a64?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    id: 2,
-    title: "В погоне за Бенкси",
-    duration:23,
-    imageUrl:
-"https://images.unsplash.com/photo-1682685797332-e678a04f8a64?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-},
-  {
-    id: 3,
-    title: "В погоне за Бенкси",
-    duration: 25,
-    imageUrl:
-        "https://images.unsplash.com/photo-1701127749663-78686c12f8e1?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-];
-
-function SavedMovies() {
-  const { onSavedPage, setOnSavedPage } = useContext(savedPageContext);
-  useEffect(() => setOnSavedPage(true), [setOnSavedPage]);
-
+const SavedMovies = () => {
   return (
-    <div className="saved-movies-page">
-      <Header />
-      <Container>
-        <section
-          className="movies saved-movies-page__movies"
-          aria-label="Сохраненные фильмы"
-        >
-          <SearchForm />
-          <MoviesCardList data={savedMovies} onSavedPage={onSavedPage} />
-        </section>
-      </Container>
-      <Footer />
-    </div>
-  );
+    <section className='saved-movies'>
+      <SearchForm />
+      <MoviesCards cards={movies} biggerScreen={3} midScreen={3} smallScreen={2} />
+    </section>
+  )
 }
-
-export default SavedMovies;
+export default SavedMovies

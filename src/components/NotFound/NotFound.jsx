@@ -1,27 +1,15 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-
-import Button from "../Button/Button";
-import "./NotFound.css";
-
-function NotFound() {
-  const navigate = useNavigate();
-  const backHandler = () => navigate(-1);
-
+import React from 'react'
+import './not-found.css'
+import {Link} from "react-router-dom";
+const NotFound = () => {
   return (
-      <section className="not-found">
-        <div className="not-found__content">
-          <div className="not-found__text">
-            <p className="not-found__error">404</p>
-            <h2 className="not-found__title">Страница не найдена</h2>
-          </div>
-          <Button className="not-found__back" handler={backHandler}>
-            Назад
-          </Button>
-        </div>
-      </section>
-  );
+    <section className='not-found'>
+      <h1 className="not-found__heading">404</h1>
+      <p className="not-found__text">Страница не найдена</p>
+      <p type='button' className='not-found__navigate'>
+        <Link to='/' >Назад</Link>
+      </p>
+    </section>
+  )
 }
-
-export default NotFound;
-
+export default NotFound

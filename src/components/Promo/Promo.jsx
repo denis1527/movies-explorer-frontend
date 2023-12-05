@@ -1,17 +1,28 @@
-import React from "react";
-import NavTab from "../NavTab/NavTab";
+import image from "../../assets/images/header/image.png";
+import './promo.css'
 
-import "./Promo.css";
+const Text = 'Учебный проект студента факультета \n Веб-разработки.'
 
-function Promo() {
+const Promo = () => {
   return (
-    <section className="promo main__promo">
-      <h1 className="promo__title">
-        Учебный проект студента факультета Веб-разработки.
-      </h1>
-      <NavTab />
+    <section className='promo'>
+      <div className="promo__wrapper wrapper">
+        <div className="promo__content content puff-in-center">
+          <h1 className="content_heading new-line">
+            {Text}
+          </h1>
+          <p>
+            Листайте ниже, чтобы узнать больше про этот проект и его создателя.
+          </p>
+          <a href="#about-project">
+            <button type='button' className='jello-horizontal'>Узнать больше</button>
+          </a>
+        </div>
+        <div className="promo__image image puff-in-center">
+          <img src={image} alt="Planet Earth Image"/>
+        </div>
+      </div>
     </section>
-  );
+  )
 }
-
-export default Promo;
+export default Promo

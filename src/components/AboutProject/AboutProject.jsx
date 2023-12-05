@@ -1,39 +1,41 @@
-import React from "react";
-import Container from "../Container/Container";
-import TextCard from "../TextCard/TextCard";
-import Roadmap from "../Roadmap/Roadmap";
-import Title from "../Title/Title";
-import "./AboutProject.css";
-
-const textCards = [
-  {
-    id: 1,
-    title: "Дипломный проект включал 5 этапов",
-    description:
-      "Составление плана, работу над бэкендом, вёрстку, добавление функциональности и финальные доработки.",
-  },
-  {
-    id: 2,
-    title: "На выполнение диплома ушло 5 недель",
-    description:
-      "У каждого этапа был мягкий и жёсткий дедлайн, которые нужно было соблюдать, чтобы успешно защититься.",
-  },
-];
+import React from 'react';
+import './about-project.css';
 
 const AboutProject = () => {
   return (
-    <Container modifier="container_type_landing">
-      <section className="about" id="about">
-        <Title title="О проекте" />
-        <div className="about__cards">
-          {textCards.map((card) => (
-            <TextCard key={card.id} {...card} />
-          ))}
+      <section id='about-project' className='about-project'>
+        <div className="about-project__wrapper">
+          <h3 className="about-project__about">О проекте</h3>
+
+          <div className="about-project__content content">
+            <div className="content__column">
+              <h4 className="content_heading">Дипломный проект включал 5 этапов</h4>
+              <p className="content_text">
+                Составление плана, работа над бэкендом, вёрстку, добавление функциональности и финальные доработки.
+              </p>
+            </div>
+            <div className="content__column">
+              <h4 className="content_heading">На выполнение диплома ушло 5 недель</h4>
+              <p className="content_text">
+                У каждого этапа был мягкий и жёсткий дедлайн, которые нужно было соблюдать, чтобы успешно защититься.
+              </p>
+            </div>
+          </div>
+
+          <div className="content_timeline timeline">
+            <div className="timeline__first-week">
+              <div className="first-week_box first-week_box_color_green">1 неделя</div>
+              <p>Back-end</p>
+            </div>
+
+            <div className="timeline__second-week">
+              <div className="first-week_box first-week_box_color_dark">4 недели</div>
+              <p>Front-end</p>
+            </div>
+          </div>
         </div>
-        <Roadmap />
       </section>
-    </Container>
   );
-};
+}
 
 export default AboutProject;

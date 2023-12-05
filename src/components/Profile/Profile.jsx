@@ -1,45 +1,72 @@
-import React from "react";
+import React, {useState} from 'react'
+import './profile.css'
+import {NavLink} from "react-router-dom";
+import FormButton from "../FormButton/FormButton";
 
-import Header from "../Header/Header";
-import Input from "../Input/Input";
-import Button from "../Button/Button";
-import "./Profile.css";
 
-function Profile() {
+const Profile = () => {
+  const [editProfile, setEditProfile] = useState(false)
+
+  const handleEditProfile = () => {
+    setEditProfile(true)
+  }
+
+  const handleSavingChanges = () => {
+    // Submit changes
+    // ...
+    setEditProfile(false)
+  }
+  const user = {
+    name: 'Denis',
+    email: 'Denis@gmail.com'
+  }
+
   return (
-    <section className="profile">
-      <Header />
-      <div className="profile__container">
-        <h2 className="profile__title">Привет, Виталий!</h2>
-        <form className="profile__form">
-          <fieldset className="profile__inputs">
-            <Input
-              name="name"
-              label="Имя"
-              modifier="profile"
-              type="text"
-              required
-            />
-            <Input
-              name="email"
-              label="E-mail"
-              modifier="profile"
-              type="email"
-              required
-            />
-          </fieldset>
-          <div className="profile__buttons">
-            <Button className="button_type_profile" type="submit">
-              Редактировать
-            </Button>
-            <Button className="button_type_profile button_type_red-text">
-              Выйти из аккаунта
-            </Button>
-          </div>
-        </form>
-      </div>
-    </section>
-  );
-}
+    <div className='profile'>
+      <h2 className="profile__heading">Привет, {user.name}!</h2>
 
-export default Profile;
+      <form className="profile__form form">
+        <label className='form_label'>Имя
+          <input
+            className='form_input'
+            type="text"
+            name='name'
+            value={user.name}
+            // onChange={onChange}
+            minLength={2}
+            maxLength={30}
+            required={true}
+            placeholder='Введите свое имя.'
+          />
+        </label>
+        <label className='form_label'>E-mail
+          <input
+            className='form_input'
+            type="email"
+            name='email'
+            value={user.email}
+            // onChange={onChange}
+            minLength={2}
+            maxLength={30}
+            required={true}
+            placeholder='Введите свой E-mail.'
+          />
+        </label>
+
+        {editProfile ? (
+          // <button className="profile__submit-btn" onClick={handleSavingChanges}>Сохранить</button>
+          <FormButton animation='scale-in-ver-top' text='Сохранить' onClick={handleSavingChanges} margin='12.25rem' smallScreenMargin={'22rem'} />
+        ) : (
+          <>
+            <button type='button' className="profile__btn profile__btn_type_edit" onClick={handleEditProfile}>Редактировать</button>
+            <button type='button' className="profile__btn profile__btn_type_exit">
+              <NavLink to='/'>Выйти из аккаунта</NavLink>
+            </button>
+          </>
+
+        )}
+      </form>
+    </div>
+  )
+}
+export default Profile

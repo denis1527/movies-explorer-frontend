@@ -1,32 +1,30 @@
-import React from "react";
-
-import Container from "../Container/Container";
-import Title from "../Title/Title";
-import TechIcon from "../TechIcon/TechIcon";
-import "./Techs.css";
-
-const stack = ["HTML", "CSS", "JS", "React", "Git", "Express.js", "mongoDB"];
-
-function Techs() {
+import './techs.css'
+const Techs = () => {
   return (
-    <section className="techs" id="techs">
-      <Container modifier="container_type_landing">
-        <Title title="Технологии" />
-        <div className="techs__texts">
-          <h3 className="techs__title">7 технологий</h3>
-          <p className="techs__description">
-            На курсе веб-разработки мы освоили технологии, которые применили в
-            дипломном проекте.
-          </p>
-        </div>
-        <ul className="techs__list">
-          {stack.map((tech) => (
-            <TechIcon key={tech} title={tech} />
-          ))}
-        </ul>
-      </Container>
-    </section>
-  );
-}
+    <section className='techs'>
+      <div className="techs__wrapper">
+        <h3 className="techs__top">
+          Технологии
+        </h3>
 
-export default Techs;
+        <div className="techs__content content">
+          <h4 className="content_heading">7 технологий</h4>
+          <p className="content_text">
+            На курсе веб-разработки мы освоили технологии, которые применили в дипломном проекте.
+          </p>
+
+          <div className="content__stack">
+            <div>HTML</div>
+            <div>CSS</div>
+            <div>JS</div>
+            <div>React</div>
+            <div>Git</div>
+            <div>Express.js</div>
+            <div>MongoDB</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+export default Techs
