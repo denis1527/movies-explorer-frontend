@@ -17,11 +17,11 @@ const MoviesCard = ({ title, duration, poster, id, savedMovies }) => {
     <div className='movies-card card '>
       <div className="card__container">
         <div className="card__heading">
-          <h3 className="card__title">{title}</h3>
+          <h2 className="card__title">{title}</h2>
           <DurationConverter minutes={duration} />
         </div>
 
-        <img src={poster} alt="Movie Image" className="card__img flip-in-diag-1-tr"/>
+        <img src={poster} alt="Изображение из фильма" className="card__img flip-in-diag-1-tr"/>
         {/* Saved movie button */}
         {/*<button className='button button_type_add' type='button'>&#10003;</button>*/}
         {/* Add movie to list button */}

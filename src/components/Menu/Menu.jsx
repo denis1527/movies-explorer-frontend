@@ -44,7 +44,7 @@ const Menu = ({ pathname, toggleMenu }) => {
           </p>
           <NavLink to='/profile'>
             <div className={pathname === '/' ? 'menu_account_div menu_account_div_color_blue' : 'menu_account_div'}>
-              <img src={accountIcon} alt="profile mage"/>
+              <img src={accountIcon} alt="Профиль"/>
             </div>
           </NavLink>
         </div>

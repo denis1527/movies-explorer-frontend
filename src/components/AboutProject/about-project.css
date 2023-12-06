@@ -42,13 +42,20 @@
 .content_timeline {
     display: flex;
     flex-direction: row;
+    max-width: 1140px; /* Добавлено */
+    margin: 0 auto; /* Добавлено */
 }
 
 .timeline__first-week,
 .timeline__second-week {
     flex: 1;
 }
-
+.timeline__first-week {
+    max-width: 20%;
+ }
+.timeline__second-week {
+    max-width: 80%;
+}
 .first-week_box {
     padding-bottom: 9px;
     padding-top: 9px;
@@ -62,13 +69,12 @@
 .first-week_box_color_green {
     color: var(--color-text-dark);
     background: var(--color-green);
-    max-width: 228px;
 }
 
 .first-week_box_color_dark {
     color: var(--color-text-light);
     background: var(--color-dark);
-    max-width: 912px;
+
 }
 
 .content_timeline p {
@@ -112,13 +118,6 @@
         flex: 4.5;
     }
 
-    .first-week_box_color_green {
-        max-width: 140px;
-    }
-
-    .first-week_box_color_dark {
-        max-width: 528px;
-    }
 
     .content_timeline p {
         font-weight: 400;
@@ -168,13 +167,6 @@
         flex: 2;
     }
 
-    .first-week_box_color_green {
-        width: 100px;
-    }
-
-    .first-week_box_color_dark {
-        width: 184px;
-    }
 
     .content_timeline p {
         font-size: 11px;

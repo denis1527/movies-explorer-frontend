@@ -12,11 +12,14 @@ const App = () => {
     return (
         <div className='App'>
             <Header />
-            <Outlet />
+            <main> {/* Добавлен тег main */}
+                <Outlet />
+            </main>
             {shouldShowFooter && <Footer />}
         </div>
     );
 };
 
 export default App;
+
 

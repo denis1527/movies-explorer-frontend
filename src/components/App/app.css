@@ -1,3 +1,4 @@
+/* Общие стили */
 * {
     box-sizing: border-box;
     padding: 0;
@@ -12,6 +13,9 @@ body {
     max-width: 1280px;
     min-width: 320px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Минимальная высота экрана для полного заполнения */
 }
 
 a {
@@ -27,7 +31,15 @@ fieldset {
     border: none;
 }
 
+/* Специфические стили для блока с классом "App" */
 .App {
     max-width: 1280px;
     position: relative;
+    flex: 1; /* Растягиваем .App, чтобы занять всю доступную высоту внутри body */
 }
+
+/* Стили для прилипающего подвала */
+footer {
+    margin-top: auto; /* Поднимаем подвал внизу, "прилипая" его к нижней границе .App */
+}
+

@@ -14,7 +14,7 @@ const ContentText = () => {
                 Мне очень нравится...
             </p>
             <a
-                href='https://github.com/denis1525'
+                href='https://github.com/denis1527'
                 target='_blank'
                 className="content_link"
                 rel="noreferrer"
@@ -35,7 +35,7 @@ const AboutMe = () => {
 
                 <div className="about-me__content content">
                     <ContentText />
-                    <img src={image} alt="Avatar" className="content__image roll-in-right"/>
+                    <img src={image} alt="Аватар изорабжения" className="content__image roll-in-right"/>
                 </div>
             </div>
         </section>

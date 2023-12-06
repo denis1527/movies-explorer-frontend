@@ -8,7 +8,6 @@ const MoviesCards = ({ cards, biggerScreen, midScreen, smallScreen }) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [cardsPerPage, setCardsPerPage] = useState(getCardsPerPage());
 
-    // Эффект для обновления cardsPerPage при изменении размера окна
     useEffect(() => {
         function handleResize() {
             setCardsPerPage(getCardsPerPage());
@@ -21,7 +20,6 @@ const MoviesCards = ({ cards, biggerScreen, midScreen, smallScreen }) => {
         };
     }, []);
 
-    // Функция для определения количества карточек на странице в зависимости от размера окна
     function getCardsPerPage() {
         if (window.innerWidth > 768) {
             return biggerScreen;
@@ -32,12 +30,10 @@ const MoviesCards = ({ cards, biggerScreen, midScreen, smallScreen }) => {
         }
     }
 
-    // Calculate start and end indices for current page
     const indexOfLastCard = currentPage * cardsPerPage;
     const indexOfFirstCard = indexOfLastCard - cardsPerPage;
     const currentCards = cards.slice(indexOfFirstCard, indexOfLastCard);
 
-    // Handle page navigation
     const handlePageChange = () => {
         setCurrentPage(currentPage + 1);
     };
@@ -62,13 +58,11 @@ const MoviesCards = ({ cards, biggerScreen, midScreen, smallScreen }) => {
                 onClick={handlePageChange}
                 style={{
                     visibility:
-                        cardsPerPage >= 12 && biggerScreen
+                        (cardsPerPage >= 12 && biggerScreen) ||
+                        (cardsPerPage >= 8 && midScreen) ||
+                        (cardsPerPage >= 5 && smallScreen)
                             ? 'visible'
-                            : cardsPerPage >= 8 && midScreen
-                                ? 'visible'
-                                : cardsPerPage >= 5 && smallScreen
-                                    ? 'visible'
-                                    : 'hidden',
+                            : 'hidden',
                 }}
             >
                 Ещё

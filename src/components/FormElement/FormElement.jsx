@@ -35,11 +35,11 @@ const FormElement = () => {
     <section className='form-element'>
       <div className="form-element__wrapper">
         <a href='/' className="form-element__logo">
-          <img src={logo} alt="Logo"/>
+          <img src={logo} alt="Лого"/>
         </a>
-        <h2 className="form-element__greeting">
+        <h1 className="form-element__greeting">
           {pathname === '/signup' ? 'Добро пожаловать!' : 'Рады видеть!'}
-        </h2>
+        </h1>
         <form className="form-element__form form-form-element">
           <fieldset className="form-form-element__fieldset">
             {pathname === '/signup' && (

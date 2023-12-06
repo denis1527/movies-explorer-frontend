@@ -15,11 +15,11 @@ const Promo = () => {
             Листайте ниже, чтобы узнать больше про этот проект и его создателя.
           </p>
           <a href="#about-project">
-            <button type='button' className='jello-horizontal'>Узнать больше</button>
+            <button type='submit' className='jello-horizontal'>Узнать больше</button>
           </a>
         </div>
         <div className="promo__image image puff-in-center">
-          <img src={image} alt="Planet Earth Image"/>
+          <img src={image} alt="Изображение планеты Земля"/>
         </div>
       </div>
     </section>

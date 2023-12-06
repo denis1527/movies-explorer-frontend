@@ -1,8 +1,10 @@
+import React from 'react';
 import FormElement from "../FormElement/FormElement";
 import './login.css'
 
 const Login = () => {
-
-  return <FormElement />
+  <main>
+    <FormElement />
+  </main>
 }
 export default Login

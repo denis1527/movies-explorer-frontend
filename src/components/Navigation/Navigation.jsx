@@ -25,12 +25,13 @@ const Navigation = () => {
               </div>
               <div className="header__menu">
                 <button
+                    type="submit"
                     onClick={handleToggleMenu}
                     className={`header__menu_btn header__menu_btn_type_${
                         toggleMenu ? 'closed' : 'opened'
                     }`}
                 >
-                  <img src={toggleMenu ? iconClose : iconMenu} alt="Toggle Menu Button" />
+                  <img src={toggleMenu ? iconClose : iconMenu} alt="Кнопка переключения меню" />
                 </button>
                 {toggleMenu && (
                     <>
